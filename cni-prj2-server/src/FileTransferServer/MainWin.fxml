@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="347.0" prefWidth="258.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="ServerStatusCtrlBtn" layoutX="147.0" layoutY="14.0" mnemonicParsing="false" text="开启服务端" />
+      <Button id="ServerStatusCtrlBtn" layoutX="147.0" layoutY="14.0" mnemonicParsing="false" text="开启服务器" />
       <Label id="ServerStatusShowLabel" layoutX="16.0" layoutY="19.0" text="服务端状态：关闭" />
       <TextArea id="LogOutputArea" layoutX="13.0" layoutY="60.0" prefHeight="270.0" prefWidth="232.0" />
    </children>

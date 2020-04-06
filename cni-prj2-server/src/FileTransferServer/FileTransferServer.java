@@ -10,7 +10,7 @@ import java.net.Socket;
 import javafx.concurrent.Task;
 
 //服务器Socket类
-public class FileTransferServer extends ServerSocket {
+class FileTransferServer extends ServerSocket {
 	private static final int ServerPort = 9527;// 端口号
 	RECVTaskPool taskpool;// 循环调用接收
 
@@ -56,7 +56,7 @@ class RECVTask extends Task<Void> {
 			OutputStream = new FileOutputStream(file);
 
 			// 开始接收文件
-			byte[] bytes = new byte[1024];
+			byte[] bytes = new byte[Server.PKGSIZE];
 			int length = 0;
 			while ((length = InputStream.read(bytes, 0, bytes.length)) != -1) {
 				OutputStream.write(bytes, 0, length);
