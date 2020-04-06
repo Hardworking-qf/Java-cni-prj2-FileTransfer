@@ -12,7 +12,7 @@ import javafx.concurrent.Task;
 //服务器Socket类
 public class FileTransferServer extends ServerSocket {
 	private static final int ServerPort = 9527;// 端口号
-	RECVTaskPool taskpool;// 这玩意循环接收用
+	RECVTaskPool taskpool;// 循环调用接收
 
 	public FileTransferServer() throws IOException {
 		super(ServerPort);
@@ -31,7 +31,7 @@ public class FileTransferServer extends ServerSocket {
 			try {
 				this.close();
 			} catch (IOException e) {
-				//我们遇到什么BUG 都不要怕 微笑地面对它 消除BUG的最好方法就是面对BUG catch就完了 奥利给！
+				// 我们遇到什么BUG 都不要怕 微笑地面对它 消除BUG的最好方法就是面对BUG catch就完了 奥利给！
 			}
 	}
 }
@@ -84,7 +84,7 @@ class RECVTask extends Task<Void> {
 }
 
 class RECVTaskPool extends Task<Void> {
-	private FileTransferServer server;//服务器套接字
+	private FileTransferServer server;// 服务器套接字
 
 	public RECVTaskPool(FileTransferServer server) {
 		this.server = server;
@@ -98,8 +98,8 @@ class RECVTaskPool extends Task<Void> {
 				socket = server.accept();
 				new RECVTask(socket).call();
 			} catch (IOException e) {
-				//在每次关闭服务器套接字时一定会catch一次异常
-				//(因为server.accept()被中断)
+				// 在每次关闭服务器套接字时一定会catch一次异常
+				// (因为server.accept()被中断)
 			}
 		}
 		return null;
