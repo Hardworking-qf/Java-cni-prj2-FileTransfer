@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.Socket;
 
-public class FileTransferClient extends Socket {
+class FileTransferClient extends Socket {
 	private static final String ServerIP = "localhost";// "129.204.152.91";//这是本人（3170）的腾讯云
 	private static final int ServerPort = 9527;
 	private Socket ClientSocket;
