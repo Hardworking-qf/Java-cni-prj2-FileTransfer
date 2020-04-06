@@ -87,6 +87,6 @@ public class Server extends Application {
 		this.ServerStatusShowLabel.setText("服务器状态：关闭");
 		this.ServerStatusCtrlBtn.setText("开启");
 		Server.LogOutputArea.appendText("服务器成功关闭\n");
-		isServerOn=false;
+		isServerOn = false;
 	}
 }

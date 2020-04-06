@@ -31,6 +31,7 @@ public class FileTransferServer extends ServerSocket {
 			try {
 				this.close();
 			} catch (IOException e) {
+				//我们遇到什么BUG 都不要怕 微笑地面对它 消除BUG的最好方法就是面对BUG catch就完了 奥利给！
 			}
 	}
 }
