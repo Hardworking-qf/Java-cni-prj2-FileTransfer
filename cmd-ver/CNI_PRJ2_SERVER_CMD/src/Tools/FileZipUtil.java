@@ -57,9 +57,13 @@ public class FileZipUtil {
 
 			File file = new File(outPath + name);
 			if (name.endsWith(File.separator)) {
-				file.mkdirs();
+				if (!file.exists())
+					file.mkdirs();
 			} else {
-				System.out.println(file.getAbsolutePath());
+				File parent = file.getParentFile();
+				if (parent != null)
+					parent.mkdirs();
+				System.out.println("接收成功至：" + file.getAbsolutePath());
 				file.createNewFile();
 				FileOutputStream fos = new FileOutputStream(file);
 				BufferedOutputStream bos = new BufferedOutputStream(fos);

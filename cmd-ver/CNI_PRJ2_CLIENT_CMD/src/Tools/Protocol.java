@@ -66,7 +66,6 @@ public class Protocol {
 		String cmd = stream.substring(0, 3);
 		// System.out.println(cmd);
 		if (cmd.equals(Command.FILELISTREQ.getCmd())) {
-
 			File root = new File(rootPath);
 			childFiles = readDir(root);
 			// childFiles=deleteDir(childFiles);
@@ -88,7 +87,7 @@ public class Protocol {
 			}
 		}
 		if (cmd.equals(Command.SENDFILELIST.getCmd())) {
-			System.out.println(readDir(new File(rootPath)));
+//			System.out.println(readDir(new File(rootPath)));
 			// 可能需要比较文件
 			String infos[];// tmp in order to run;
 			String info = stream.substring(3);

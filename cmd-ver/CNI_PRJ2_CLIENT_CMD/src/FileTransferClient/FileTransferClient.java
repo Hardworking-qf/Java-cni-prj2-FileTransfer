@@ -20,7 +20,7 @@ public class FileTransferClient extends Socket {
 		String sendStr, recvStr;
 
 		// 发送文件列表
-		sendStr = protocol.readCmd("011");
+		sendStr = protocol.readCmd(Command.FILELISTREQ.getCmd());
 //		System.out.println(sendStr);
 		writer.write(sendStr);
 		writer.flush();
@@ -36,8 +36,13 @@ public class FileTransferClient extends Socket {
 		writer.flush();
 		protocol.SendFileStream();
 		System.out.println("传输成功！");
-		writer.close();
-		reader.close();
-		this.close();
+		try {
+			writer.close();
+		} catch (Exception e) {
+		}
+		try {
+			reader.close();
+		} catch (Exception e) {
+		}
 	}
 }
